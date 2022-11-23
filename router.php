@@ -110,49 +110,6 @@
             }
 
             break;
-            
-        case "pet":
-
-            require_once("Controller/Pet.php");
-
-            $pet = new PetControl();
-
-            switch ($_POST["acao"]) {
-
-                case "inserir":
-
-                    $pet->inserir();
-
-                    break;
-
-                case "obterTodos":
-
-                    $pet->obterTodos();
-
-                    break;
-
-                case "obterUm":
-
-                    $pet->obterUm();
-
-                    break;
-
-                case "atualizar":
-
-                    $pet->atualizar();
-
-                    break;
-
-                case "remover":
-
-                    $pet->remover();
-
-                    break;
-
-
-            }
-            
-            break;
 
     }
 
