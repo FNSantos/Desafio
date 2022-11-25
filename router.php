@@ -110,6 +110,49 @@
             }
 
             break;
+            
+        case "fatura":
+
+            require_once("Controller/Fatura.php");
+
+            $pet = new PetControl();
+
+            switch ($_POST["acao"]) {
+
+                case "inserir":
+
+                    $pet->inserir();
+
+                    break;
+
+                case "obterTodos":
+
+                    $pet->obterTodos();
+
+                    break;
+
+                case "obterUm":
+
+                    $pet->obterUm();
+
+                    break;
+
+                case "atualizar":
+
+                    $pet->atualizar();
+
+                    break;
+
+                case "remover":
+
+                    $pet->remover();
+
+                    break;
+
+
+            }
+            
+            break;
 
     }
 

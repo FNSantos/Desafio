@@ -70,7 +70,8 @@
             
             foreach ($listaProdutos as $produto) {
                 $lista[] = array('id' => $produto->getId(), 
-                                 'produto' => $produto->getProduto());
+                                 'produto' => $produto->getProduto(),
+                                 'valor' => $produto->getValor());
             }
 
             echo(json_encode($lista));

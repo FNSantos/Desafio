@@ -9,7 +9,7 @@
         <script src="JavaScript/ajax_produto_cliente.js" charset="utf-8"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
         <style>
-            .form-check-input:hover{
+            label, .form-check-input:hover{
                 cursor: pointer;
             }
             #clientes, #produtos{
@@ -28,15 +28,14 @@
             <div id="clientes"></div>
             <div id="produtos"></div>            
             <br>
-            <button type="submit" class="btn btn-primary" id="btn_enviar">Enviar</button>
-            <nav class="navbar navbar-light bg-light" style="margin-top:20px;">
-              <div class="form-group col-md-6">
-                <input class="form-control " type="search" placeholder="Search" aria-label="Search" onkeyup="buscar()" id='busca'>
+            <div class='col-md-3'>
+                <label for="data-pagamento">Data de Vencimento</label>         
+                <div class="input-group date" data-date-format="dd/mm/yyyy">
+                  <input type="date" class="form-control" id="data_vencimento">
                 </div>
-                  <div class="form-group col-md-6">
-                <button class="btn btn-outline-success " type="submit" >Search</button>
-                </div>
-            </nav>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" id="btn_salvar">Salvar</button>
             <div id="table"></div>
         </div>
     </body>
