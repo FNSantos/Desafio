@@ -22,16 +22,19 @@
         </style>
     </head>
     <body>
-        <input type="hidden" id="id_produto" value="<?php echo @$_GET['id_produto'];?>">
         <div class="container" style="margin-top:10px;">
             <?php include 'menu.php';?>
+            <!--
+                DIV clientes e produtos recebem atravez do javascript as informações
+                    dos clientes e dos produtos para fazer geração da fatura
+            -->
             <div id="clientes"></div>
             <div id="produtos"></div>            
             <br>
             <div class='col-md-3'>
                 <label for="data-pagamento">Data de Vencimento</label>         
                 <div class="input-group date" data-date-format="dd/mm/yyyy">
-                  <input type="date" class="form-control" id="data_vencimento">
+                  <input type="date" class="form-control" id="data_vencimento" required>
                 </div>
             </div>
             <br>

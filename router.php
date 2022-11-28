@@ -115,37 +115,25 @@
 
             require_once("Controller/Fatura.php");
 
-            $pet = new PetControl();
+            $fatura = new FaturaControl();
 
             switch ($_POST["acao"]) {
 
                 case "inserir":
 
-                    $pet->inserir();
+                    $fatura->inserir();
 
                     break;
 
                 case "obterTodos":
 
-                    $pet->obterTodos();
-
-                    break;
-
-                case "obterUm":
-
-                    $pet->obterUm();
-
-                    break;
-
-                case "atualizar":
-
-                    $pet->atualizar();
+                    $fatura->obterTodos();
 
                     break;
 
                 case "remover":
 
-                    $pet->remover();
+                    $fatura->remover();
 
                     break;
 

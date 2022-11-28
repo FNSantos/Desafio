@@ -2,12 +2,15 @@ let rota = "../router.php"
 
 let modo = ""
 
-
+//inseri os registros da fatura
 function inserir(){
     
     //Criando lista de produtos selecionados
     var produtos = [];
+    //Criando variavel para armazenar o valor total da compra
+    var valor = 0.00;
     $('input[name="radioButton"]:checked').each(function() {
+        valor += parseFloat(this.getAttribute('valor'));
         produtos.push(this.value);
     });
     
@@ -17,11 +20,12 @@ function inserir(){
         acao:"inserir",
         idProdutos:produtos,
         idCliente:$('input[name="clientes"]:checked').val(),
-        dataVencimento:$("#data_vencimento").val()
+        dataVencimento:$("#data_vencimento").val(),
+        valor:valor.toFixed(2)
 
     }).done(function(dados){
 
-        alert("CADASTRADO COM SUCESSO");
+        alert("FATURA CADASTRADA COM SUCESSO");
 
 //        obterTodos();
 
@@ -29,6 +33,7 @@ function inserir(){
 
 }
 
+// obtem todos os produtos para selecionar quais produtos os clientes consumiram
 function obterTodosProdutos(){
 
     $.post(rota, {
@@ -47,9 +52,9 @@ function obterTodosProdutos(){
             var valor = produtos[i]['valor'];
             
             dataInner += '<div class="form-check">'+
-                '<input class="form-check-input" type="checkbox" name="radioButton" id="listaDeProdutos'+id+'" value="'+id+'" checked>'+
+                '<input class="form-check-input" type="checkbox" name="radioButton" id="listaDeProdutos'+id+'" valor="'+valor+'" value="'+id+'" checked>'+
                 '<label class="form-check-label" for="listaDeProdutos'+id+'">'+
-                produto+"  - R$"+valor+
+                produto+"  - R$ "+valor+
                 '</label>'+
             '</div>';
             
@@ -60,6 +65,8 @@ function obterTodosProdutos(){
 
 }
 
+
+// obtem todos os clientes para selecionar qual será o dono da fatura
 function obterTodosClientes(){
 
     $.post(rota, {
